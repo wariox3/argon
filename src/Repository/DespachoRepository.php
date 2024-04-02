@@ -166,20 +166,20 @@ class DespachoRepository extends ServiceEntityRepository
     {
         $em = $this->getEntityManager();
         $arDespacho = $em->getRepository(Despacho::class)->find($codigoDespacho);
-        $arOperadorConfiguracion = $em->getRepository(OperadorConfiguracion::class)->find($arDespacho->getCodigoOperadorFk());
         if($arDespacho) {
+            $arOperadorConfiguracion = $em->getRepository(OperadorConfiguracion::class)->find($arDespacho->getCodigoOperadorFk());
             return [
                 'error' => false,
                 'codigoDespachoPk' =>$arDespacho->getCodigoDespachoPk(),
                 'fecha' =>$arDespacho->getFecha(),
                 'codigoDespacho' => $arDespacho->getCodigoDespacho(),
                 'token' => $arDespacho->getToken(),
-                'estadoEntregado' => $arDespacho->isEstadoEntregado(),
+                'estadoEntregado' => $arDespacho->getEstadoEntregado(),
                 'codigoOperador' => $arDespacho->getCodigoOperadorFk(),
                 'nombre' => $arDespacho->getOperadorRel()->getNombre(),
                 'puntoServicio' => $arDespacho->getOperadorRel()->getPuntoServicioCromo(),
                 'puntoServicioToken' => $arDespacho->getOperadorRel()->getToken(),
-                'entregaNovedad' => $arOperadorConfiguracion->isEntregaNovedad()
+                'entregaNovedad' => $arOperadorConfiguracion->getEntregaNovedad()
             ];
         } else {
             return [
