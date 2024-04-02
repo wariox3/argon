@@ -43,13 +43,6 @@ class UsuarioRepository extends ServiceEntityRepository
             }
             $oferta = false;
             $tienda = false;
-            if ($arUsuario->getPanalRel()) {
-                $oferta = $arUsuario->getPanalRel()->isOferta();
-                $tienda = $arUsuario->getPanalRel()->isTienda();
-            }
-            if ($arUsuario->getCeldaRel()) {
-                $celda = $arUsuario->getCeldaRel()->getCelda();
-            }
             return [
                 'error' => false,
                 'autenticar' => true,
@@ -58,15 +51,15 @@ class UsuarioRepository extends ServiceEntityRepository
                     'usuario' => $arUsuario->getUsuario(),
                     'nombre' => $arUsuario->getNombre(),
                     'urlImagen' => $_ENV['ALMACENAMIENTO_URL'] . $arUsuario->getUrlImagen(),
-                    'codigoCelda' => $arUsuario->getCodigoCeldaFk(),
-                    'codigoPanal' => $arUsuario->getCodigoPanalFk(),
-                    'codigoCiudad' => $arUsuario->getCodigoCiudadFk(),
-                    'codigoPuesto' => $arUsuario->getCodigoPuestoFk(),
+                    'codigoCelda' => null,
+                    'codigoPanal' => null,
+                    'codigoCiudad' => null,
+                    'codigoPuesto' => null,
                     'codigoTercero' => $arUsuario->getCodigoTerceroFk(),
                     'codigoOperador' => $arUsuario->getCodigoOperadorFk(),
                     'calidadImagen' => $arUsuario->getCalidadImagen(),
                     'codigoOperacion' => $arUsuario->getCodigoOperacionFk(),
-                    'habilitadoConfiguracion' => $arUsuario->isHabilitadoConfiguracion(),
+                    'habilitadoConfiguracion' => $arUsuario->getHabilitadoConfiguracion(),
                     'celda' => $celda,
                     'tienda' => $tienda,
                     'oferta' => $oferta,
