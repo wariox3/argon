@@ -22,9 +22,9 @@ class OperadorConfiguracionRepository extends ServiceEntityRepository
             return [
                 'error' => false,
                 'calidadImagenEntrega' => $arOperadorConfiguracion->getCalidadImagenEntrega(),
-                'exigeImagenEntrega' => $arOperadorConfiguracion->isExigeImagenEntrega(),
-                'exigeFirmaEntrega' => $arOperadorConfiguracion->isExigeFirmaEntrega(),
-                'entregaNovedad' => $arOperadorConfiguracion->isEntregaNovedad()
+                'exigeImagenEntrega' => $arOperadorConfiguracion->getExigeImagenEntrega(),
+                'exigeFirmaEntrega' => $arOperadorConfiguracion->getExigeFirmaEntrega(),
+                'entregaNovedad' => $arOperadorConfiguracion->getEntregaNovedad()
             ];
         } else {
             return [
