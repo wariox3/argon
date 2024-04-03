@@ -36,11 +36,11 @@ class UsuarioRepository extends ServiceEntityRepository
             $puntoServicio = "";
             $puntoServicioToken = "";
             $celda = "";
-            if ($arUsuario->getOperadorRel()) {
+            /*if ($arUsuario->getOperadorRel()) {
                 $operador = $arUsuario->getOperadorRel()->getNombre();
                 $puntoServicio = $arUsuario->getOperadorRel()->getPuntoServicioCromo();
                 $puntoServicioToken = $arUsuario->getOperadorRel()->getToken();
-            }
+            }*/
             $oferta = false;
             $tienda = false;
             return [
